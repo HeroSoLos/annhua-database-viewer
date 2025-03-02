@@ -1,0 +1,375 @@
+/* style.css */
+
+/* Basic resets */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background-color: #121212;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure the buttons are on the right */
+    background-color: #1a1a1a;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+.brand {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+#selectDatasetBtn, #datasetSettingsBtn {
+    padding: 0.5rem 1rem;
+    background: #3a3a3a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 0.5rem; /* Add some space between the buttons */
+}
+#selectDatasetBtn:hover, #datasetSettingsBtn:hover {
+    background: #555;
+}
+
+/* Main Content Layout */
+.main-content {
+    padding: 1rem;
+}
+
+/* Search Section */
+.search-section {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+.search-section label {
+    margin-right: 0.25rem;
+}
+.search-section select,
+.search-section input[type="text"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    background-color: #2b2b2b;
+    color: #fff;
+}
+.search-section button {
+    padding: 0.5rem 1rem;
+    background: #3a3a3a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+.search-section button:hover {
+    background: #555;
+}
+
+/* Extra space between rule pills and the table */
+#rulesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Rule pills and group pills */
+.rule-pill, .group-pill {
+    background: #2b2b2b;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    cursor: move;
+    border: 1px dashed #555; /* Dotted line effect */
+}
+
+/* Ensure operators (AND/OR) are vertically centered */
+.rule-text {
+    margin: 0 0.3rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Remove button (X) with dark theme */
+.rule-remove {
+    background: #3a3a3a;  /* Dark background */
+    border: none;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 18px;
+    color: #bbb; /* Slightly gray for dark mode */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Darker hover effect for X button */
+.rule-remove:hover {
+    background: #555;
+    color: #fff;
+}
+
+/* Container for group children (for nested groups) */
+.group-children {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+/* Table container */
+.table-container {
+    max-height: 70vh;
+    overflow-y: auto;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    border-bottom: 1px solid #333;
+    border-top: none;
+    border-radius: 4px;
+    overflow: hidden; /* This prevents any content from peeking outside */
+    position: relative; /* Create a positioning context */
+}
+
+/* Dark-themed scrollbars */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    background-color: #1a1a1a;
+}
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 4px;
+}
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #444;
+}
+
+/* Apply dark-themed scrollbars to tbody */
+.table-container tbody::-webkit-scrollbar {
+    width: 8px;
+    background-color: #1a1a1a;
+}
+.table-container tbody::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 4px;
+}
+.table-container tbody::-webkit-scrollbar-thumb:hover {
+    background-color: #444;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1c1c1c;
+    margin: 0;
+    position: relative;
+}
+thead {
+    border: 1px solid #555;
+}
+thead tr {
+    position: sticky;
+    top: 0;
+    background: #1a1a1a;
+    z-index: 1;
+}
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+}
+thead tr th {
+    top: 0;
+    z-index: 2; /* Higher z-index to ensure it stays on top */
+    box-shadow: 0 1px 0 #333; /* Optional: adds a subtle shadow for visual separation */
+}
+.arrow {
+    margin-left: 0.5rem;
+    cursor: pointer;
+    color: #bbb;
+    user-select: none;
+}
+
+/* Alternating row colors */
+tbody tr:nth-child(odd) {
+    background-color: #2b2b2b;
+}
+tbody tr:nth-child(even) {
+    background-color: #232323;
+}
+tbody tr:hover {
+    background-color: rgba(40, 80, 200, 0.15);
+}
+tbody tr td:first-child {
+    color: #4b94ff;
+}
+
+/* Blue highlight for merging (drop targets) */
+.drop-target {
+    outline: 2px solid #4b94ff;
+}
+
+/* Modal prompt styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #555;
+    width: 300px;
+    text-align: center;
+    border-radius: 8px;
+}
+.modal-content p {
+    margin-bottom: 1rem;
+}
+.modal-content button {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+.modal-content button:hover {
+    background-color: #555;
+}
+
+/* Adjust the sticky header behavior */
+.table-container thead tr th {
+    top: 0;
+    z-index: 2; /* Higher z-index to ensure it stays on top */
+    box-shadow: 0 1px 0 #333; /* Optional: adds a subtle shadow for visual separation */
+}
+
+/* Create a scrollable area just for the tbody */
+.table-container tbody {
+    display: block;
+    max-height: calc(70vh - 40px); /* Adjust based on your header height */
+    overflow-y: auto;
+}
+
+/* Ensure thead and tbody cells maintain consistent widths */
+.table-container thead, .table-container tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* Dataset Selection Modal */
+.dataset-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 1rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+}
+
+.dataset-list div {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.dataset-list div:hover {
+    background-color: #333;
+}
+
+.dataset-list div.selected {
+    background-color: #555;
+}
+
+/* Dataset Selection Modal */
+#datasetSearch {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    background-color: #2b2b2b;
+    color: #fff;
+    width: calc(100% - 1rem); /* Adjust width to fit within the modal */
+    margin-bottom: 1rem;
+}
+
+/* Dataset Selection Modal */
+#datasetModal, #datasetSettingsModal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+#datasetModal .modal-content, #datasetSettingsModal .modal-content {
+    background-color: #1a1a1a;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #555;
+    width: 300px;
+    text-align: center;
+    border-radius: 8px;
+}
+#datasetModal .modal-content button, #datasetSettingsModal .modal-content button {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+#datasetModal .modal-content button:hover, #datasetSettingsModal .modal-content button:hover {
+    background-color: #555;
+}
+
+/* Checklist for Dataset Settings Modal */
+.checklist label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+.checklist input[type="checkbox"] {
+    margin-right: 0.5rem;
+}

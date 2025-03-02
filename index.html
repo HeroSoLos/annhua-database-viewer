@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Andrew's Database</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Sticky Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="#" class="brand">andrew's database</a>
+    </div>
+    <div class="nav-right">
+      <button id="datasetSettingsBtn">Dataset Settings</button>
+      <button id="selectDatasetBtn">Select Dataset</button>
+    </div>
+  </nav>
+
+  <!-- Main Content: Search/Rules + Table -->
+  <div class="main-content">
+    <!-- Search Section (old design) -->
+    <div class="search-section">
+      <label for="searchColumn">Search in:</label>
+      <select id="searchColumn"></select>
+      <label for="searchOperator">Operator:</label>
+      <select id="searchOperator"></select>
+      <input type="text" id="searchValue" placeholder="Enter value..." />
+      <button id="addRuleBtn">Add Rule</button>
+    </div>
+
+    <!-- Container for rule pills/groups (with extra spacing) -->
+    <div id="rulesContainer"></div>
+
+    <!-- Scrollable table container (header stays pinned; no peeking) -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody id="peopleTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Custom Modal Prompt for Merge Operator -->
+  <div id="modalPrompt" class="modal">
+    <div class="modal-content">
+      <p>Merge with:</p>
+      <button id="mergeAndBtn">AND</button>
+      <button id="mergeOrBtn">OR</button>
+      <button id="mergeCancelBtn">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Dataset Selection Modal -->
+  <div id="datasetModal" class="modal">
+    <div class="modal-content">
+      <input type="text" id="datasetSearch" placeholder="Search datasets..." />
+      <div id="datasetList" class="dataset-list"></div>
+      <button id="closeDatasetModal">Close</button>
+    </div>
+  </div>
+
+  <!-- Dataset Settings Modal -->
+  <div id="datasetSettingsModal" class="modal">
+    <div class="modal-content">
+      <h3>Select Columns to Display</h3>
+      <div id="columnChecklist" class="checklist"></div>
+      <button id="selectAllBtn">Select All</button>
+      <button id="deselectAllBtn">Deselect All</button>
+      <button id="flipAllBtn">Flip All</button> <!-- Add this line -->
+      <button id="saveSettingsBtn">Save</button>
+      <button id="closeSettingsModal">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="data.js"></script>
+</body>
+</html>
